@@ -31,8 +31,8 @@ export default {
           "50%": { opacity: "1", transform: "scale(1.1)" },
         },
         float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-8px)" },
+          "0%, 100%": { translate: "0 0" },
+          "50%": { translate: "0 -8px" },
         },
         shimmer: {
           "0%": { backgroundPosition: "-200% 0" },

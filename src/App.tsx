@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { AmbientBackground } from "./components/AmbientBackground";
+import { DecorativeCards } from "./components/DecorativeCards";
 import { SparkleLayer } from "./components/SparkleLayer";
 import { TomeList } from "./components/TomeList";
 import { Wheel, type WheelHandle } from "./components/Wheel";
@@ -31,8 +31,8 @@ export default function App() {
 
   return (
     <>
-      <AmbientBackground />
       <SparkleLayer paused={spinning} />
+      <DecorativeCards />
 
       <main className="relative z-10 min-h-screen w-full px-4 sm:px-6 py-10 sm:py-14">
         <div className="mx-auto max-w-5xl flex flex-col gap-10">
