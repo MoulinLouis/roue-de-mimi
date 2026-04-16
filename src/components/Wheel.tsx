@@ -86,15 +86,6 @@ export const Wheel = forwardRef<WheelHandle, Props>(function Wheel(
       ctx.beginPath();
       ctx.arc(0, 0, radius, 0, TAU);
       ctx.fill();
-      ctx.fillStyle = "rgba(255, 255, 255, 0.85)";
-      ctx.beginPath();
-      ctx.arc(0, 0, radius * 0.42, 0, TAU);
-      ctx.fill();
-      ctx.font = `${18 * dpr}px 'Quicksand', sans-serif`;
-      ctx.fillStyle = "#B24473";
-      ctx.textAlign = "center";
-      ctx.textBaseline = "middle";
-      ctx.fillText("Ajoute un tome ✨", 0, 0);
       ctx.restore();
       drawCenterGem(ctx, cx, cy, radius, dpr);
       return;
@@ -259,21 +250,23 @@ export const Wheel = forwardRef<WheelHandle, Props>(function Wheel(
           <circle cx="22" cy="20" r="5" fill="#E24A6A" stroke="white" strokeWidth="2" />
         </svg>
       </div>
-      <button
-        type="button"
-        onClick={spin}
-        disabled={spinning || tomes.length < 2}
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
-          size-[18%] min-w-[70px] min-h-[70px] rounded-full
-          bg-gradient-to-br from-white via-fairy-blush to-fairy-petal
-          border-[3px] border-white shadow-gem
-          font-display font-bold text-fairy-deep
-          hover:scale-105 active:scale-95 transition-transform
-          disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
-        aria-label={spinning ? "La roue tourne…" : "Faire tourner la roue"}
-      >
-        {spinning ? "…" : "GO"}
-      </button>
+      {tomes.length >= 2 && (
+        <button
+          type="button"
+          onClick={spin}
+          disabled={spinning}
+          className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2
+            size-[18%] min-w-[70px] min-h-[70px] rounded-full
+            bg-gradient-to-br from-white via-fairy-blush to-fairy-petal
+            border-[3px] border-white shadow-gem
+            font-display font-bold text-fairy-deep
+            hover:scale-105 active:scale-95 transition-transform
+            disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
+          aria-label={spinning ? "La roue tourne…" : "Faire tourner la roue"}
+        >
+          {spinning ? "…" : "GO"}
+        </button>
+      )}
     </div>
   );
 });
