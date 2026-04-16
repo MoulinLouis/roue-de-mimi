@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html,
+  body,
+  #root {
+    height: 100%;
+  }
+
+  body {
+    @apply font-body text-fairy-deep antialiased;
+    background:
+      radial-gradient(1200px 600px at 15% -10%, #fde1ee 0%, transparent 55%),
+      radial-gradient(900px 500px at 90% 10%, #d9f0e3 0%, transparent 60%),
+      radial-gradient(900px 600px at 50% 110%, #ffe3ee 0%, transparent 60%),
+      linear-gradient(180deg, #fff7fb 0%, #ffeaf3 60%, #f0f9f4 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply rounded-3xl bg-white/80 border border-white/70 shadow-dreamy;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 font-semibold text-white
+      bg-gradient-to-r from-fairy-rose via-fairy-petal to-fairy-rose
+      shadow-gem hover:scale-[1.02] active:scale-95 transition-transform
+      disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-1.5 rounded-full px-4 py-2 text-sm font-semibold
+      text-fairy-deep bg-white/70 border border-fairy-blush hover:bg-fairy-blush/40 transition;
+  }
+
+  .input-fairy {
+    @apply w-full rounded-full bg-white/80 border border-fairy-blush px-5 py-3 text-fairy-deep
+      placeholder:text-fairy-petal/70 focus:outline-none focus:ring-4 focus:ring-fairy-petal/40 transition;
+  }
+
+  .chip {
+    @apply flex items-center justify-between gap-3 rounded-2xl bg-white/70 border border-white/80
+      px-4 py-2.5 text-fairy-deep shadow-sm;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .text-shadow-soft {
+    text-shadow: 0 2px 12px rgba(236, 127, 169, 0.35);
+  }
+}
