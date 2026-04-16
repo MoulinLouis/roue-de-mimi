@@ -1,5 +1,3 @@
-import type { CSSProperties } from "react";
-
 type Card = {
   src: string;
   position: { top?: string; bottom?: string; left?: string; right?: string };
@@ -53,28 +51,32 @@ export function DecorativeCards() {
       className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
     >
       {CARDS.map((c) => (
-        <img
+        <div
           key={c.src}
-          src={c.src}
-          alt=""
-          loading="lazy"
-          decoding="async"
-          className="deco-card pointer-events-auto absolute animate-float rounded-xl lg:rounded-2xl border-[3px] lg:border-[5px] border-white/80 opacity-40 sm:opacity-55 lg:opacity-90"
-          style={
-            {
-              ...c.position,
+          className="absolute animate-float"
+          style={{
+            ...c.position,
+            animationDelay: `${c.delay}s`,
+            animationDuration: "7s",
+          }}
+        >
+          <img
+            src={c.src}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="deco-card pointer-events-auto block rounded-xl lg:rounded-2xl border-[3px] lg:border-[5px] border-white/80 opacity-40 sm:opacity-55 lg:opacity-90"
+            style={{
               width: c.width,
               aspectRatio: "5 / 7",
               objectFit: "cover",
               objectPosition: c.objectPosition,
-              animationDelay: `${c.delay}s`,
-              animationDuration: "7s",
+              transform: `rotate(${c.rotate}deg) scale(1)`,
               maskImage: MASK,
               WebkitMaskImage: MASK,
-              "--card-rotate": `${c.rotate}deg`,
-            } as CSSProperties
-          }
-        />
+            }}
+          />
+        </div>
       ))}
     </div>
   );
